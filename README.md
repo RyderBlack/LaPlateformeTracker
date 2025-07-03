@@ -14,8 +14,8 @@ A student tracking application for La Plateforme.
 
 ### Configuration
 
-1. Copy `src/main/resources/application.properties.example` to `src/main/resources/application.properties`
-2. Update the database connection details in `application.properties`
+1. Copy `src/main/resources/config.properties.example` to `src/main/resources/application.properties`
+2. Update the database connection details in `config.properties`
 
 ### Creating an Admin User
 
