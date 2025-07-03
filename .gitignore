@@ -1,109 +1,75 @@
-# Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
 .idea/
+.idea/*
 *.iws
 *.iml
 *.ipr
-*.class
-out/
-.idea_modules/
 
-# Local configuration files (syntax: regexp)
-*.local.*
-
-# Log file
-*.log
-
-# Package Files
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
-
-# Application Properties - DO NOT COMMIT SENSITIVE DATA
-src/main/resources/application.properties
-
-# System Files
-.DS_Store
-Thumbs.db
-
-# Environment files
-.env
-*.env
-
-# IDE specific files
-.vscode/
-*.sublime-workspace
-*.sublime-project
-
-# Build directory
-build/
-
-# Local development files
-*.iml
-.idea/
-*.ipr
-*.iws
-*.ids
-*.orig
-
-# Logs
-logs/
-*.log
-
-# Local development files
-*.swp
-*.swo
-*~
-
-# Maven wrapper
-.mvn/
-
-# Dependency directories
-**/target/dependency/
-**/target/site/
-**/target/surefire-reports/
-**/target/failsafe-reports/
-**/target/failsafe-reports/
-**/target/surefire-reports/
-**/target/classes/
-**/target/test-classes/
-
-# Eclipse
+### Eclipse ###
+.apt_generated
 .classpath
+.factorypath
 .project
-.settings/
+.settings
+.springBeans
+.sts4-cache
 
-# NetBeans
-/nbproject/private/
+### NetBeans ###
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-/build/
+build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-# VS Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+### VS Code ###
+.vscode/
 
-# Mac OS
+### Mac OS ###
+.DS_Store
+
+### Configuration files ###
+# Application properties
+src/main/resources/application.properties
+
+# Local development overrides
+src/main/resources/application-*.properties
+
+# Environment specific files
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Local database files
+*.db
+*.sqlite
+
+# Local development SQL files
+dev_seed.sql
+
+# IDE specific files
+*.swp
+*.swo
+*~
+
+# Build directories
+target/
+build/
+
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -111,3 +77,5 @@ logs/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+src/main/resources/config.properties

@@ -53,19 +53,14 @@ public class DatabaseConnection {
     }
 
     public static Connection getConnection() throws SQLException {
-        try {
-            Connection connection = connectionPool.poll();
-            if (connection == null || connection.isClosed() || !connection.isValid(5)) {
-                if (connection != null && !connection.isClosed()) {
-                    connection.close();
-                }
-                return createNewConnection();
+        Connection connection = connectionPool.poll();
+        if (connection == null || connection.isClosed() || !connection.isValid(5)) {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
             }
-            return connection;
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            throw new SQLException("Interrupted while getting connection", e);
+            return createNewConnection();
         }
+        return connection;
     }
 
     public static void closeConnection(Connection connection) {
