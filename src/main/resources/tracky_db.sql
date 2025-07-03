@@ -28,3 +28,5 @@ CREATE TABLE IF NOT EXISTS study_domain (
 -- Example (password will be hashed in the application code):
 -- INSERT INTO admin (username, email, password) 
 -- VALUES ('admin', 'your_email@example.com', 'your_secure_password');
+
+

@@ -14,3 +14,5 @@ logging.level.app.tracky=DEBUG
 # Security (Update these values in production)
 jwt.secret=your_jwt_secret_key_here
 jwt.expiration=86400000  # 24 hours in milliseconds
+
+
