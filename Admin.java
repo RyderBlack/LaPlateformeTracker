@@ -2,6 +2,8 @@ package app.tracky;
 
 import java.sql.*;
 
+import app.tracky.model.Hashing;
+
 public class Admin {
     private int id;
     private String username;
@@ -28,21 +30,25 @@ public class Admin {
 
     // Database operations
     public static Admin authenticate(String username, String password) {
-        String sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
-        
+        String sql = "SELECT * FROM admin WHERE username = ?";
+
         try (Connection conn = Database.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            
+
             pstmt.setString(1, username);
-            pstmt.setString(2, password);
-            
+
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    Admin admin = new Admin();
-                    admin.setId(rs.getInt("id"));
-                    admin.setUsername(rs.getString("username"));
-                    admin.setEmail(rs.getString("email"));
-                    return admin;
+                    String hashedPassword = rs.getString("password");
+                    if (Hashing.checkPassword(password, hashedPassword)) {
+                        Admin admin = new Admin();
+                        admin.setId(rs.getInt("id"));
+                        admin.setUsername(rs.getString("username"));
+                        admin.setEmail(rs.getString("email"));
+
+                        admin.setPassword(hashedPassword);
+                        return admin;
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -50,6 +56,7 @@ public class Admin {
         }
         return null;
     }
+
 
     public boolean save() {
         if (id == 0) {
@@ -67,7 +74,7 @@ public class Admin {
             
             pstmt.setString(1, username);
             pstmt.setString(2, email);
-            pstmt.setString(3, password);
+            pstmt.setString(3, Hashing.hashPassword(password));
             
             int affectedRows = pstmt.executeUpdate();
             
@@ -140,6 +147,24 @@ public class Admin {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        Admin admin = new Admin("UserTest", "test.user@laplateforme.io", "hashmdp");
+        boolean success = admin.save();
+
+        if (success) {
+        System.out.println("✅ Admin enregistré avec succès. ID : " + admin.getId());
+        } else {
+            System.out.println("❌ Échec de l'enregistrement de l'admin.");
+        }
+
+        Admin loggedIn = Admin.authenticate("Arnaud", "Laplateforme1212");
+        if (loggedIn != null) {
+            System.out.println("✅ Connecté en tant que : " + loggedIn.getUsername());
+        } else {
+            System.out.println("❌ Échec de l'authentification.");
         }
     }
 }
