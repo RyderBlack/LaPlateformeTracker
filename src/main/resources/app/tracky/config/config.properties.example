@@ -1,0 +1,45 @@
+# Database Configuration
+# ====================
+
+# Database connection URL
+# Format: jdbc:postgresql://hostname:port/database
+# Example for local PostgreSQL: jdbc:postgresql://localhost:5432/tracky_db
+db.url=jdbc:postgresql://localhost:5432/tracky_db
+
+# Database credentials
+db.username=postgres
+db.password=your_secure_password_here
+
+# Connection Pool Settings
+# =======================
+
+# Minimum number of idle connections in the pool
+db.pool.minIdle=5
+
+# Maximum number of idle connections in the pool
+db.pool.maxIdle=10
+
+# Maximum total number of connections in the pool
+db.pool.maxTotal=25
+
+# Maximum wait time (in milliseconds) for a connection to become available
+db.pool.maxWaitMillis=10000
+
+# Application Settings
+# ===================
+
+# Application name and version
+app.name=Tracky Admin
+app.version=1.0.0
+
+# Logging level (OFF, SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST, ALL)
+# logging.level=INFO
+
+# Log file path (relative to application directory or absolute path)
+# logging.file=logs/application.log
+
+# Log file max size in MB before rotation
+# logging.maxSize=10
+
+# Number of backup log files to keep
+# logging.backupCount=5

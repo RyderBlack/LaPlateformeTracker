@@ -79,3 +79,7 @@ ehthumbs.db
 Thumbs.db
 
 src/main/resources/config.properties
+src/main/resources/application.properties
+src/main/resources/app/tracky/config/application.properties
+src/main/resources/app/tracky/config/config.properties
+config.properties
