@@ -24,7 +24,6 @@ target/
 .sts4-cache
 
 ### NetBeans ###
-/nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
@@ -38,3 +37,47 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Configuration files ###
+# Application properties
+src/main/resources/application.properties
+
+# Local development overrides
+src/main/resources/application-*.properties
+
+# Environment specific files
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Local database files
+*.db
+*.sqlite
+
+# Local development SQL files
+dev_seed.sql
+
+# IDE specific files
+*.swp
+*.swo
+*~
+
+# Build directories
+target/
+build/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+src/main/resources/config.properties
+src/main/resources/app/tracky/config/application.properties
+src/main/resources/app/tracky/config/config.properties
