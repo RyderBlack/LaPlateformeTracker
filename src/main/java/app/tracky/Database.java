@@ -5,7 +5,7 @@ import java.util.Properties;
 import java.io.InputStream;
 
 public class Database {
-    private static final String CONFIG_FILE = "/config.properties";
+    private static final String CONFIG_FILE = "/app/tracky/config/application.properties";
     private static String url;
     private static String username;
     private static String password;
