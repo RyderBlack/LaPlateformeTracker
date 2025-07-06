@@ -41,6 +41,9 @@ build/
 ### Configuration files ###
 # Application properties
 src/main/resources/application.properties
+src/main/resources/config.properties
+src/main/resources/app/tracky/config/application.properties
+src/main/resources/app/tracky/config/config.properties
 
 # Local development overrides
 src/main/resources/application-*.properties
@@ -78,6 +81,3 @@ build/
 ehthumbs.db
 Thumbs.db
 
-src/main/resources/config.properties
-src/main/resources/app/tracky/config/application.properties
-src/main/resources/app/tracky/config/config.properties
