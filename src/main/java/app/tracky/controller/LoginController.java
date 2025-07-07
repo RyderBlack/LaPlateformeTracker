@@ -34,7 +34,7 @@ public class LoginController {
         if (admin != null) {
             // Login successful
             clearForm();
-            Main.showDashboard();
+            Main.showDashboard(admin);
         } else {
             // Login failed
             showError("Invalid username/email or password");

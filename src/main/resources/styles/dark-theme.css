@@ -94,3 +94,57 @@
     -fx-text-fill: #ff6b6b;
     -fx-font-size: 13px;
 }
+
+/* Dashboard Styles */
+.dashboard-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e0e0e0;
+}
+
+.search-type {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #e0e0e0;
+    -fx-pref-width: 120;
+}
+
+.search-field {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #e0e0e0;
+    -fx-prompt-text-fill: #a0a0a0;
+    -fx-pref-width: 300;
+}
+
+.student-table {
+    -fx-background-color: #2d2d2d;
+    -fx-table-cell-border-color: #3c3f41;
+}
+
+.student-table .column-header {
+    -fx-background-color: #3c3f41;
+}
+
+.student-table .column-header .label {
+    -fx-text-fill: #e0e0e0;
+}
+
+.student-table .table-row-cell {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #3c3f41;
+}
+
+.student-table .table-row-cell:odd {
+    -fx-background-color: #333333;
+}
+
+.student-table .table-row-cell:selected {
+    -fx-background-color: #2b579a;
+    -fx-text-fill: white;
+}
+
+.status-label {
+    -fx-text-fill: #a0a0a0;
+    -fx-font-size: 12px;
+    -fx-padding: 5px;
+}

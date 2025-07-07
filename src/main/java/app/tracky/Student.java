@@ -107,24 +107,17 @@ public class Student {
 
     public static Student[] findAll() {
         String sql = "SELECT * FROM student ORDER BY lastname, firstname";
+        java.util.List<Student> studentList = new java.util.ArrayList<>();
         
         try (Connection conn = Database.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             
-            // First, count the rows to create the array
-            rs.last();
-            int size = rs.getRow();
-            rs.beforeFirst();
-            
-            Student[] students = new Student[size];
-            int index = 0;
-            
             while (rs.next()) {
-                students[index++] = fromResultSet(rs);
+                studentList.add(fromResultSet(rs));
             }
             
-            return students;
+            return studentList.toArray(new Student[0]);
             
         } catch (SQLException e) {
             e.printStackTrace();
