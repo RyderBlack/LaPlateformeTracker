@@ -29,6 +29,44 @@ public class Admin {
     public void setPassword(String password) { this.password = password; }
 
     // Database operations
+    public static boolean usernameExists(String username) {
+        String sql = "SELECT COUNT(*) FROM admin WHERE username = ?";
+        
+        try (Connection conn = Database.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, username);
+            
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public static boolean emailExists(String email) {
+        String sql = "SELECT COUNT(*) FROM admin WHERE email = ?";
+        
+        try (Connection conn = Database.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, email);
+            
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
     public static Admin authenticate(String username, String password) {
         String sql = "SELECT * FROM admin WHERE username = ?";
 

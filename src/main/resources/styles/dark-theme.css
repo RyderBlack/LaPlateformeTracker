@@ -1,0 +1,96 @@
+/* Dark Theme Styles */
+.root {
+    -fx-base: #2b2b2b;
+    -fx-background: #1e1e1e;
+    -fx-control-inner-background: #2d2d2d;
+    -fx-text-fill: #e0e0e0;
+}
+
+/* Text and Labels */
+.label {
+    -fx-text-fill: #e0e0e0;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #e0e0e0;
+    -fx-background-radius: 5;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #4e5254;
+}
+
+.button-primary {
+    -fx-background-color: #2b579a;
+    -fx-text-fill: white;
+}
+
+.button-primary:hover {
+    -fx-background-color: #3a6ab4;
+}
+
+/* Text Fields */
+.text-field, .password-field {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #e0e0e0;
+    -fx-prompt-text-fill: #a0a0a0;
+    -fx-border-color: #4e5254;
+    -fx-border-radius: 3;
+    -fx-padding: 8;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #2b579a;
+}
+
+/* Containers */
+.container {
+    -fx-background-color: #2b2b2b;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-alignment: center;
+}
+
+/* Login/Register Forms */
+.form-container {
+    -fx-background-color: #2d2d2d;
+    -fx-padding: 30;
+    -fx-spacing: 20;
+    -fx-pref-width: 400;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+    -fx-background-radius: 10;
+}
+
+.form-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e0e0e0;
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #a0a0a0;
+}
+
+/* Links */
+.hyperlink {
+    -fx-text-fill: #4a9cff;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #6ab0ff;
+    -fx-underline: true;
+}
+
+/* Error Message */
+.error-message {
+    -fx-text-fill: #ff6b6b;
+    -fx-font-size: 13px;
+}

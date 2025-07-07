@@ -1,39 +1,56 @@
 package app.tracky;
 
-public class Main {
-    public static void main(String[] args) {
-        // Test Admin
-        System.out.println("=== Testing Admin ===");
-        Admin admin = new Admin("testuser", "test@example.com", "testpass");
-        boolean saved = admin.save();
-        System.out.println("Admin saved: " + saved);
-        
-        // Test authentication
-        Admin authenticated = Admin.authenticate("testuser", "testpass");
-        System.out.println("Authenticated: " + (authenticated != null));
-        
-        // Test Student
-        System.out.println("\n=== Testing Student ===");
-        Student student = new Student("John", "Doe", 20, 15.5);
-        saved = student.save();
-        System.out.println("Student saved: " + saved);
-        
-        // Add study domain
-        if (saved) {
-            StudyDomain domain = new StudyDomain("Mathematics", 16.0, student.getId());
-            saved = domain.save();
-            System.out.println("Study domain saved: " + saved);
-            
-            // Find student with domain
-            System.out.println("\n=== Student Details ===");
-            Student found = Student.findById(student.getId());
-            System.out.println("Found student: " + found);
-            
-            StudyDomain[] domains = StudyDomain.findByStudentId(student.getId());
-            System.out.println("Study domains:");
-            for (StudyDomain d : domains) {
-                System.out.println("  - " + d);
-            }
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+    private static Stage primaryStage;
+
+    @Override
+    public void start(Stage stage) {
+        primaryStage = stage;
+        showLoginView();
+        stage.show();
+    }
+
+    public static void showLoginView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/views/LoginView.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 800, 600);
+            scene.getStylesheets().add("/styles/dark-theme.css");
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Admin Login - Tracky");
+            primaryStage.setMinWidth(800);
+            primaryStage.setMinHeight(600);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+
+    public static void showRegisterView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/views/RegisterView.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 800, 600);
+            scene.getStylesheets().add("/styles/dark-theme.css");
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Admin Registration - Tracky");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void showDashboard() {
+        // This would be your main dashboard view
+        // For now, we'll just show a simple success message
+        System.out.println("Login successful! Dashboard would be shown here.");
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
